@@ -1,0 +1,65 @@
+// @import '../config/vars.color';
+// @import '../config/vars';
+@import '../utils/';
+
+.main-header {
+	background: $c-blue;
+	background: radial-gradient(circle at 50% 50%, $c-blue, $c-darkBlue 82%);
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+	width: 100vw;
+	.header-bg {
+		@include position-select(0, 0, absolute);
+		object-fit: cover !important;
+		height: 100vh;
+		opacity: 0.75;
+		width: 100vw;
+		z-index: 1;
+	}
+	.content {
+		z-index: 2;
+	}
+}
+
+.shape-holder {
+	@include position-select(0, 0, absolute, true, false);
+	line-height: 0;
+	transform: rotate(180deg);
+	width: 100%;
+	z-index: 2;
+	svg {
+		fill: $c-white;
+		filter: drop-shadow(0 50px 20px darken($c-darkBlue, 5%));
+		display: block;
+		height: 66px;
+		position: relative;
+		width: calc(100% + 1.3px);
+	}
+}
+
+.menu {
+	color: $c-white;
+	font-size: 18px;
+	a {
+		overflow: hidden;
+		position: relative;
+		&:after {
+			@include position-select(50%, 100%, absolute, true, false);
+			background: $c-white;
+			content: '';
+			height: 2px;
+			opacity: 0;
+			transform: translate(-50%, 0);
+			transition: all 0.25s ease-in-out;
+			width: 110%;
+		}
+		&:hover {
+			&:after {
+				@include position-select(50%, -2px, absolute, true, false);
+				height: 2px;
+				opacity: 1;
+			}
+		}
+	}
+}

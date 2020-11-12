@@ -1,0 +1,20 @@
+// @import './config/vars.color';
+@import './utils';
+@import './components';
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: white;
+	color: $c-text;
+	font-family: 'Muli', sans-serif;
+	font-size: 16px;
+	min-height: 100vh;
+	overflow-x: hidden;
+	width: 100vw;
+	&.no-scroll {
+		overflow: hidden;
+	}
+}
